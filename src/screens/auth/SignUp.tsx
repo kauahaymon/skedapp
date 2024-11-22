@@ -6,8 +6,14 @@ import {
 } from "react-native"
 
 import { InputArea } from "../../components/InputArea";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 
 export default function SignUp() {
+
+    const [email, setEmail]: any = useState()
+    const [password, setPassword]: any = useState()
+    
     return (
         <View style={styles.container}>
             <Text style={styles.signInText} >Create new account</Text>

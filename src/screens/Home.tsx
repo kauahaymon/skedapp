@@ -4,7 +4,8 @@ import {
     View,
     FlatList,
     Text,
-    Platform
+    Platform,
+    TouchableOpacity
 } from "react-native"
 
 import { useContext, useState } from "react";
@@ -12,6 +13,7 @@ import ActivityItem from "../components/ActivityItem"
 import Button from "../components/button/ButtonAdd"
 import FormModal from "./modal/Form";
 import { ActivityContext } from "../context/ActivityProvider";
+import { firebase_auth } from "../services/firebaseConfig";
 
 
 export default function Home() {
@@ -40,6 +42,9 @@ export default function Home() {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
+            <TouchableOpacity onPress={() => firebase_auth.signOut()}>
+                <Text>Logout</Text>
+            </TouchableOpacity>
             <View style={styles.listContainer}>
                 <FlatList
                     data={activity}
